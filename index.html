@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro kvíz</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="kviz">
+
+    <h1>💶 Euro kvíz</h1>
+
+    <p id="prubeh">Příklad 1 z 6</p>
+
+    <h2 id="otazka"></h2>
+
+    <div class="odpoved">
+        <input type="number" id="odpoved" placeholder="Kolik Kč?">
+        <span>Kč</span>
+    </div>
+
+    <button id="tlacitko">Ověřit</button>
+
+    <button id="novaLekce" style="display: none;">🔄 Nová lekce</button>
+
+    <div id="zprava"></div>
+
+    <div id="eurka" class="eurka skryto">
+        <div class="eurka-hlavicka">
+            😊 Eurka
+        </div>
+
+        <div id="eurka-text"></div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
