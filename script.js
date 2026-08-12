@@ -31,6 +31,15 @@ let pocetSpravnych = 0;
 // Čekáme na další otázku?
 let cekameNaDalsiOtazku = false;
 
+// Příklady, které byly v základní části zodpovězeny chybně
+let opakovaciPriklady = [];
+
+// Index aktuálního příkladu v opakovací části
+let indexOpakovani = 0;
+
+// Nacházíme se v opakovací části?
+let vOpakovaciCast = false;
+
 // Pochvaly Eurky
 const POCHVALY = [
 
@@ -66,21 +75,41 @@ let posledniPovzbuzeni = "";
 // Vytvoří novou otázku
 // --------------------------------------
 
-function vytvorOtazku() {
+function vytvorOtazku(eura = null) {
 
-    // Aktualizujeme průběh lekce
-    document.getElementById("prubeh").textContent =
-        "Příklad " + cisloPrikladu + " z " + POCET_PRIKLADU;
-    
-    // Náhodná hodnota od 1 do 20
-    aktualniEura = Math.floor(Math.random() * MAX_EUR) + 1;
+    // Zobrazíme průběh lekce
+    if (vOpakovaciCast) {
+
+        document.getElementById("prubeh").textContent =
+            "Opakování " + (indexOpakovani + 1) +
+            " z " + opakovaciPriklady.length;
+
+    } else {
+
+        document.getElementById("prubeh").textContent =
+            "Příklad " + cisloPrikladu + " z " + POCET_PRIKLADU;
+    }
+
+    // Pokud je předaná konkrétní hodnota,
+    // použijeme ji. Jinak vytvoříme novou náhodnou otázku.
+    if (eura !== null) {
+
+        aktualniEura = eura;
+
+    } else {
+
+        aktualniEura =
+            Math.floor(Math.random() * MAX_EUR) + 1;
+    }
 
     // Spočítáme správnou odpověď
     spravnaOdpoved = aktualniEura * KURZ_EURA;
 
     // Zobrazíme otázku
     const otazka = document.getElementById("otazka");
-    otazka.textContent = "Kolik je " + aktualniEura + " €?";
+
+    otazka.textContent =
+        "Kolik je " + aktualniEura + " €?";
 
     // Vymažeme předchozí odpověď
     document.getElementById("odpoved").value = "";
@@ -238,6 +267,10 @@ function novaLekce() {
 
     pocetSpravnych = 0;
 
+    opakovaciPriklady = [];
+    indexOpakovani = 0;
+    vOpakovaciCast = false;
+
     cekameNaDalsiOtazku = false;
 
     document.querySelector(".odpoved").style.display = "flex";
@@ -260,56 +293,141 @@ function novaLekce() {
 
 function zkontrolujOdpoved() {
 
-    // Kliknutí na "Další otázka"
+        // Kliknutí na "Další otázka"
     if (cekameNaDalsiOtazku) {
 
         cekameNaDalsiOtazku = false;
 
-        if (cisloPrikladu >= POCET_PRIKLADU) {
+        // --------------------------------------
+        // OPakovací část
+        // --------------------------------------
+
+        if (vOpakovaciCast) {
+
+            indexOpakovani++;
+
+            // Ještě zbývá další opakovaný příklad
+            if (indexOpakovani < opakovaciPriklady.length) {
+
+                vytvorOtazku(
+                    opakovaciPriklady[indexOpakovani]
+                );
+
+                document.getElementById("tlacitko").textContent =
+                    "Ověřit";
+
+                return;
+            }
+
+            // Opakovací část skončila
             ukoncitLekci();
+
+            return;
+        }
+
+        // --------------------------------------
+        // Základní část
+        // --------------------------------------
+
+        if (cisloPrikladu >= POCET_PRIKLADU) {
+
+            // Máme nějaké chybné příklady?
+            if (opakovaciPriklady.length > 0) {
+
+                vOpakovaciCast = true;
+                indexOpakovani = 0;
+
+                vytvorOtazku(
+                    opakovaciPriklady[indexOpakovani]
+                );
+
+                document.getElementById("tlacitko").textContent =
+                    "Ověřit";
+
+                return;
+            }
+
+            // Žádné chyby nebyly
+            ukoncitLekci();
+
             return;
         }
 
         cisloPrikladu++;
+
         vytvorOtazku();
 
-        document.getElementById("tlacitko").textContent = "Ověřit";
+        document.getElementById("tlacitko").textContent =
+            "Ověřit";
 
         return;
     }
 
-    const odpoved = Number(document.getElementById("odpoved").value);
+    const odpoved =
+        Number(document.getElementById("odpoved").value);
 
-    const zprava = document.getElementById("zprava");
-    const tlacitko = document.getElementById("tlacitko");
+    const zprava =
+        document.getElementById("zprava");
+
+    const tlacitko =
+        document.getElementById("tlacitko");
+
+    // --------------------------------------
+    // Správná odpověď
+    // --------------------------------------
 
     if (odpoved === spravnaOdpoved) {
 
-        pocetSpravnych++;
+        // Správnou odpověď započítáváme
+        // pouze v základní části.
+        if (!vOpakovaciCast) {
 
-        console.log("Počet správných:", pocetSpravnych);
+            pocetSpravnych++;
+
+            console.log(
+                "Počet správných:",
+                pocetSpravnych
+            );
+        }
 
         const pochvala = vyberPochvalu();
 
         zprava.innerHTML =
             "<strong>" + pochvala + "</strong><br><br>" +
-            aktualniEura + " × " + KURZ_EURA + " = " + spravnaOdpoved + " Kč";
+            aktualniEura + " × " +
+            KURZ_EURA + " = " +
+            spravnaOdpoved + " Kč";
 
-        tlacitko.textContent = "Další otázka";
+        tlacitko.textContent =
+            "Další otázka";
+
         cekameNaDalsiOtazku = true;
 
     } else {
 
-        const povzbuzeni = vyberPovzbuzeni();
+        // Chybu ukládáme pouze v základní části.
+        // V opakovací části ji už znovu nepřidáváme.
+
+        if (!vOpakovaciCast) {
+
+    opakovaciPriklady.push(aktualniEura);
+
+           }
+
+        const povzbuzeni =
+            vyberPovzbuzeni();
 
         zprava.innerHTML =
-        "<strong>" + povzbuzeni + "</strong><br><br>" +
-        aktualniEura + " × " + KURZ_EURA + " = " + spravnaOdpoved + " Kč";
+            "<strong>" + povzbuzeni + "</strong><br><br>" +
+            aktualniEura + " × " +
+            KURZ_EURA + " = " +
+            spravnaOdpoved + " Kč";
 
-        tlacitko.textContent = "Další otázka";
+        tlacitko.textContent =
+            "Další otázka";
+
         cekameNaDalsiOtazku = true;
     }
-
 }
 
 
