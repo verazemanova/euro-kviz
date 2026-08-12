@@ -42,6 +42,11 @@ První veřejná verze aplikace.
 
 ## [0.6.0] – plánováno
 
+### Dokončeno
+
+- Opakování chybně zodpovězených příkladů na konci základní šestice.
+- Opakovací příklady se zobrazují ve stejném pořadí jako v základní části a každý právě jednou.
+
 ### Plánováno
 
 - Tipy od Eurky.

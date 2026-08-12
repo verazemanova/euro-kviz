@@ -90,3 +90,22 @@ Projekt obsahuje první plně funkční verzi jedné lekce. Uživatel může abs
 ## Stav projektu
 
 Aplikace nyní obsahuje kompletní průběh jedné lekce včetně motivačního systému a odměn za dosažený výsledek.
+
+# Verze 0.6
+
+## Dokončené funkce
+
+- Navržena pravidla pro opakování chybně zodpovězených příkladů.
+- Implementováno opakování chybně zodpovězených příkladů na konci základní šestice.
+- Opakovací příklady se zobrazují ve stejném pořadí, v jakém byly chybně zodpovězeny v základní části.
+- Každý chybný příklad se v opakovací části zobrazí právě jednou.
+- Chyba při opakování nevede k dalšímu opakování stejného příkladu.
+- Opakované příklady neovlivňují výsledek ani odměnu za základní šestici.
+- Funkce byla otestována lokálně.
+- Funkce byla následně ověřena také na veřejné verzi aplikace prostřednictvím GitHub Pages.
+
+## Stav projektu
+
+Verze 0.6 je ve vývoji. Funkce opakování chybně zodpovězených příkladů je dokončena a otestována.
+
+Další plánované funkce zahrnují tipy od Eurky, první grafickou podobu Eurky, statistiky více lekcí, více obtížností a další úpravy grafického vzhledu.

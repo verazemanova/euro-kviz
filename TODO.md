@@ -22,8 +22,8 @@
 
 ## Verze 0.6 – Rozšíření aplikace
 
-- [ ] Návrh pravidel pro opakování chybně zodpovězených příkladů.
-- [ ] Opakované zařazování chybně zodpovězených příkladů do tréninku.
+- [x] Návrh pravidel pro opakování chybně zodpovězených příkladů.
+- [x] Opakované zařazování chybně zodpovězených příkladů do tréninku.
 - [ ] Tipy od Eurky.
 - [ ] První grafická podoba Eurky.
 - [ ] Statistiky více lekcí.
