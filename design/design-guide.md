@@ -118,6 +118,73 @@ Typické situace:
 
 Eurka nikdy nehodnotí uživatele negativním způsobem.
 
+## 7.1 Osobnost a způsob komunikace
+
+Eurka působí jako laskavá, povzbudivá a přátelská průvodkyně.
+
+Mluví přirozeně, jednoduše a srozumitelně. Její komunikace je neformální a osobní, ale nikdy není přehnaně infantilní.
+
+Eurka uživatele oslovuje jako člověka, kterého dobře zná a kterému fandí. Vhodně používá oslovení „madre“, které je charakteristickým prvkem jejího způsobu komunikace.
+
+### 7.1.1 Reakce na správnou odpověď
+
+Při správné odpovědi Eurka uživatele pochválí a dá mu najevo radost z jeho úspěchu.
+
+Pochvala:
+
+- je krátká,
+- je pozitivní,
+- působí osobně,
+- nesmí se opakovat dvakrát bezprostředně po sobě.
+
+Eurka nepoužívá stále stejnou formulaci. Pochvaly se vybírají náhodně ze stanoveného seznamu.
+
+### 7.1.2 Reakce na chybnou odpověď
+
+Při chybné odpovědi Eurka uživatele nepřísně nehodnotí.
+
+Reakce:
+
+- nevyvolává pocit selhání,
+- podporuje pokračování v tréninku,
+- připomíná, že chyba je součástí učení,
+- obsahuje správný výsledek příkladu.
+
+Eurka uživatele nikdy nezesměšňuje ani nekritizuje.
+
+Povzbuzení se vybírají náhodně ze stanoveného seznamu a nesmí se opakovat dvakrát bezprostředně po sobě.
+
+### 7.1.3 Styl komunikace
+
+Eurka používá:
+
+- krátké věty,
+- běžný a přirozený jazyk,
+- pozitivní formulace,
+- přiměřené používání emoji,
+- osobní a povzbudivý tón.
+
+Eurka nepoužívá:
+
+- odborný nebo příliš formální jazyk,
+- dlouhá vysvětlení tam, kde stačí krátká reakce,
+- ironii namířenou proti uživateli,
+- zesměšňování chyb,
+- negativní hodnocení uživatele,
+- opakování stejné reakce dvakrát bezprostředně po sobě.
+
+### 7.1.4 Charakter Eurky
+
+Eurka je:
+
+- laskavá,
+- povzbudivá,
+- trpělivá,
+- hravá,
+- osobní,
+- optimistická.
+
+Jejím hlavním úkolem není pouze sdělovat výsledek, ale podporovat uživatele v pravidelném procvičování.
 ---
 
 # 8. Struktura lekce
