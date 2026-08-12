@@ -214,6 +214,24 @@ V první verzi aplikace:
 
 Další úrovně obtížnosti budou přidány v pozdějších verzích.
 
+## 9.1 Opakování chybně zodpovězených příkladů
+
+Od verze 0.6 se chybně zodpovězené příklady zařazují do opakovací části lekce.
+
+Každá lekce obsahuje šest základních příkladů. Po dokončení základní části následuje opakovací část, pokud uživatel alespoň jeden základní příklad zodpověděl chybně.
+
+Každý chybně zodpovězený příklad se v opakovací části zobrazí právě jednou.
+
+Opakovací příklady se zobrazují ve stejném pořadí, v jakém byly chybně zodpovězeny v základní části.
+
+Správná odpověď na opakovaný příklad se zaznamená, ale nemění počet správných odpovědí ani výslednou odměnu za lekci.
+
+Pokud uživatel opakovaný příklad zodpoví znovu chybně, příklad se v rámci stejné lekce již znovu nezobrazí.
+
+Výsledek lekce se určuje pouze podle počtu správně zodpovězených příkladů z původních šesti základních příkladů.
+
+Pokud byly všechny základní příklady zodpovězeny správně, opakovací část se přeskočí.
+
 ---
 
 # 10. Přístup k vývoji
